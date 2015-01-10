@@ -67,3 +67,36 @@ Maintain by [missdeer](http://minidump.info/)
 ## License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+
+### Prebuilt Binaries Download
+
+Download the pre-built binaries for variant platforms:
+
+[Darwin x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-darwin-386)
+
+[Darwin amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-darwin-amd64)
+
+[OpenBSD x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-openbsd-386)
+
+[OpenBSD amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-openbsd-amd64)
+
+[NetBSD x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-netbsd-386)
+
+[NetBSD amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-netbsd-amd64)
+
+[FreeBSD x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-freebsd-386)
+
+[FreeBSD amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-freebsd-amd64)
+
+[FreeBSD arm6](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-freebsd-arm)
+
+[Linux x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-linux-386)
+
+[Linux amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-linux-amd64)
+
+[Linux arm6](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-linux-arm)
+
+[Windows x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-windows-386), append the extension name ".exe" after downloaded.
+
+[Windows amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-windows-amd64), append the extension name ".exe" after downloaded.
+
