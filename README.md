@@ -76,6 +76,10 @@ Download the pre-built binaries for variant platforms:
 
 [Darwin amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-darwin-amd64)
 
+[DragonflyBSD x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-dragonfly-386)
+
+[DragonflyBSD amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-dragonfly-amd64)
+
 [OpenBSD x86](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-openbsd-386)
 
 [OpenBSD amd64](https://github.com/missdeer/KellyBackend/raw/prebuilt/KellyBackend-openbsd-amd64)
