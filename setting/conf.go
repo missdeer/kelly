@@ -289,6 +289,7 @@ func LoadConfig() *goconfig.ConfigFile {
 
 	beego.RunMode = Cfg.MustValue("app", "run_mode")
 	beego.HttpPort = Cfg.MustInt("app", "http_port")
+    beego.HttpAddr = Cfg.MustValue("app", "http_addr", "127.0.0.1")
 
 	IsProMode = beego.RunMode == "pro"
 	if IsProMode {
