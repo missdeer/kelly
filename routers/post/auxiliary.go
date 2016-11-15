@@ -24,33 +24,33 @@ type AuxiliaryRouter struct {
 }
 
 func (this *AuxiliaryRouter) About() {
-	this.TplNames = "post/about.html"
+	this.TplName = "post/about.html"
 }
 
 func (this *AuxiliaryRouter) FAQ() {
-	this.TplNames = "post/faq.html"
+	this.TplName = "post/faq.html"
 }
 
 func (this *AuxiliaryRouter) Contact() {
-	this.TplNames = "post/contact.html"
+	this.TplName = "post/contact.html"
 }
 
 func (this *AuxiliaryRouter) Err401() {
-	this.TplNames = "post/error/401.html"
+	this.TplName = "post/error/401.html"
 }
 
 func (this *AuxiliaryRouter) Err403() {
-	this.TplNames = "post/error/403.html"
+	this.TplName = "post/error/403.html"
 }
 
 func (this *AuxiliaryRouter) Err404() {
-	this.TplNames = "post/error/404.html"
+	this.TplName = "post/error/404.html"
 }
 
 func (this *AuxiliaryRouter) Err500() {
-	this.TplNames = "post/error/500.html"
+	this.TplName = "post/error/500.html"
 }
 
 func (this *AuxiliaryRouter) Err503() {
-	this.TplNames = "post/error/503.html"
+	this.TplName = "post/error/503.html"
 }
