@@ -1,11 +1,8 @@
 # kelly
 
 [![Build Status](https://secure.travis-ci.org/missdeer/kelly.png)](https://travis-ci.org/missdeer/kelly)
-[![Total views](https://sourcegraph.com/api/repos/github.com/missdeer/kelly/counters/views.png)](https://sourcegraph.com/github.com/missdeer/kelly)
-[![status](https://sourcegraph.com/api/repos/github.com/missdeer/kelly/.badges/status.png)](https://sourcegraph.com/github.com/missdeer/kelly)
-[![Gobuild Download](http://gobuild.io/badge/github.com/missdeer/kelly/downloads.svg)](http://gobuild.io/github.com/missdeer/kelly)
 
-Yiili community which is a part of [Kelly project](https://github.com/missdeer/kelly), it is the server side, AKA backend, of the project. The source code is based on WeTalk project, thanks those guys for their great work.
+A forum application powered by Go.
 
 ### Usage
 
@@ -62,7 +59,7 @@ So you could need Java Runtime. Or close this feature in code by yourself.
 
 ### Contact
 
-Maintain by [missdeer](http://minidump.info/)
+Maintain by [missdeer](https://minidump.info/)
 
 ## License
 

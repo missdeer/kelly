@@ -1,11 +1,72 @@
 language: go
 go:
 - tip
-script:
-- go build .
 env:
   global:
   - GITHUB_REPO: missdeer/kelly
   - GIT_NAME: missdeer
   - GIT_EMAIL: missdeer@dfordsoft.com
   - secure: Putn2dfCb7wEXFZ5yF/TFo8HHiyIGf7b80C5lJHB4YTKxKBic8xOd3v6IhVfXNZgHSvuA+TVDI9VQJ9eRviJalCVN1qP88oLlrj4/q1WeF9DDUxpTPHV1uP/z6F8s0nmyICRFPs7Gq0fUyfZae+DgF0uaZT+6VxDksjg25eYFFQ=
+deploy:
+  provider: releases
+  api_key:
+    secure: Putn2dfCb7wEXFZ5yF/TFo8HHiyIGf7b80C5lJHB4YTKxKBic8xOd3v6IhVfXNZgHSvuA+TVDI9VQJ9eRviJalCVN1qP88oLlrj4/q1WeF9DDUxpTPHV1uP/z6F8s0nmyICRFPs7Gq0fUyfZae+DgF0uaZT+6VxDksjg25eYFFQ=
+  file:
+    - kelly-darwin-amd64.tar.gz
+    - kelly-dragonflybsd-amd64.tar.gz
+    - kelly-freebsd-amd64.tar.gz
+    - kelly-freebsd-arm.tar.gz
+    - kelly-freebsd-x86.tar.gz
+    - kelly-linux-amd64.tar.gz
+    - kelly-linux-arm64.tar.gz
+    - kelly-linux-armv6.tar.gz
+    - kelly-linux-armv7.tar.gz
+    - kelly-linux-mips64.tar.gz
+    - kelly-linux-mips64le.tar.gz
+    - kelly-linux-mips.tar.gz
+    - kelly-linux-mipsle.tar.gz
+    - kelly-linux-ppc64.tar.gz
+    - kelly-linux-ppc64le.tar.gz
+    - kelly-linux-x86.tar.gz
+    - kelly-netbsd-amd64.tar.gz
+    - kelly-netbsd-arm.tar.gz
+    - kelly-netbsd-x86.tar.gz
+    - kelly-openbsd-amd64.tar.gz
+    - kelly-openbsd-x86.tar.gz
+    - kelly-solaris-amd64.tar.gz
+    - kelly-windows-amd64.tar.gz
+    - kelly-windows-x86.tar.gz
+  on:
+    repo: dfordsoft/kelly
+    tags: true
+  skip_cleanup: true
+install:
+  - go get github.com/dfordsoft/kelly
+script:
+  - pwd && ls -l
+  - env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=386 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-x86.tar.gz kelly conf static static_source views
+  - env GOARCH=arm GOARM=5 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-armv5.tar.gz kelly conf static static_source views
+  - env GOARCH=arm GOARM=6 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-armv6.tar.gz kelly conf static static_source views
+  - env GOARCH=arm GOARM=7 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-armv7.tar.gz kelly conf static static_source views
+  - env GOARCH=arm64 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-arm64.tar.gz kelly conf static static_source views
+  - env GOARCH=ppc64 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-ppc64.tar.gz kelly conf static static_source views
+  - env GOARCH=ppc64le GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-ppc64le.tar.gz kelly conf static static_source views
+  - env GOARCH=mips64 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-mips64.tar.gz kelly conf static static_source views
+  - env GOARCH=mips64le GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-mips64le.tar.gz kelly conf static static_source views
+  - env GOARCH=mips GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-mips.tar.gz kelly conf static static_source views
+  - env GOARCH=mipsle GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-mipsle.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=darwin go build  && tar czvf kelly-darwin-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=windows go build  && tar czvf kelly-windows-amd64.tar.gz kelly conf static static_source views.exe
+  - env GOARCH=386 GOOS=windows go build  && tar czvf kelly-windows-x86.tar.gz kelly conf static static_source views.exe
+  - env GOARCH=amd64 GOOS=freebsd go build  && tar czvf kelly-freebsd-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=386 GOOS=freebsd go build  && tar czvf kelly-freebsd-x86.tar.gz kelly conf static static_source views
+  - env GOARCH=arm GOOS=freebsd go build  && tar czvf kelly-freebsd-arm.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=openbsd go build  && tar czvf kelly-openbsd-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=386 GOOS=openbsd go build  && tar czvf kelly-openbsd-x86.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=netbsd go build  && tar czvf kelly-netbsd-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=386 GOOS=netbsd go build  && tar czvf kelly-netbsd-x86.tar.gz kelly conf static static_source views
+  - env GOARCH=arm GOOS=netbsd go build  && tar czvf kelly-netbsd-arm.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=dragonfly go build  && tar czvf kelly-dragonflybsd-amd64.tar.gz kelly conf static static_source views
+  - env GOARCH=amd64 GOOS=solaris go build  && tar czvf kelly-solaris-amd64.tar.gz kelly conf static static_source views
+  - ls -l
