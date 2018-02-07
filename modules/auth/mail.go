@@ -19,9 +19,9 @@ import (
 
 	"github.com/beego/i18n"
 
-	"github.com/missdeer/KellyBackend/modules/mailer"
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/modules/utils"
+	"github.com/missdeer/kelly/modules/mailer"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/modules/utils"
 )
 
 // Send user register mail with active code

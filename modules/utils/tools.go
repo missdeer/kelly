@@ -32,7 +32,7 @@ import (
 
 	"github.com/astaxie/beego"
 
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/setting"
 )
 
 func NumberEncode(number string, alphabet []byte) string {
@@ -212,7 +212,7 @@ func TimesReachedTest(key string, times int) (int, bool) {
 }
 
 func TimesReachedSet(key string, times int, reloadMinutes int) {
-	setting.Cache.Put(key, times+1, int64(reloadMinutes)*60)
+	setting.Cache.Put(key, times+1, time.Duration(reloadMinutes)*time.Minute)
 }
 
 // convert string to specify type

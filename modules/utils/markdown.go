@@ -15,7 +15,7 @@
 package utils
 
 import (
-	"github.com/slene/blackfriday"
+	"github.com/russross/blackfriday"
 )
 
 func RenderMarkdown(mdStr string) string {
@@ -26,8 +26,6 @@ func RenderMarkdown(mdStr string) string {
 	// htmlFlags |= blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
 	htmlFlags |= blackfriday.HTML_SKIP_HTML
 	htmlFlags |= blackfriday.HTML_SKIP_STYLE
-	htmlFlags |= blackfriday.HTML_SKIP_SCRIPT
-	htmlFlags |= blackfriday.HTML_GITHUB_BLOCKCODE
 	htmlFlags |= blackfriday.HTML_OMIT_CONTENTS
 	htmlFlags |= blackfriday.HTML_COMPLETE_PAGE
 	renderer := blackfriday.HtmlRenderer(htmlFlags, "", "")

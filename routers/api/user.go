@@ -17,10 +17,10 @@ package api
 import (
 	"github.com/astaxie/beego/orm"
 
-	"github.com/missdeer/KellyBackend/modules/auth"
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/modules/utils"
-	"github.com/missdeer/KellyBackend/routers/base"
+	"github.com/missdeer/kelly/modules/auth"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/modules/utils"
+	"github.com/missdeer/kelly/routers/base"
 )
 
 type ApiRouter struct {

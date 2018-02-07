@@ -15,8 +15,8 @@
 package mailer
 
 import (
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/setting"
 )
 
 // Create New mail message use MailFrom and MailUser

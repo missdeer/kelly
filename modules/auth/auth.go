@@ -17,17 +17,18 @@ package auth
 import (
 	"encoding/hex"
 	"fmt"
-	"github.com/astaxie/beego/context"
 	"strings"
+
+	"github.com/astaxie/beego/context"
 	// "time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/session"
 
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/modules/utils"
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/modules/utils"
+	"github.com/missdeer/kelly/setting"
 )
 
 // CanRegistered checks if the username or e-mail is available.
@@ -119,7 +120,7 @@ func GetLoginRedirect(ctx *context.Context) string {
 func LoginUser(user *models.User, ctx *context.Context, remember bool) {
 	// werid way of beego session regenerate id...
 	ctx.Input.CruSession.SessionRelease(ctx.ResponseWriter)
-	ctx.Input.CruSession = beego.GlobalSessions.SessionRegenerateId(ctx.ResponseWriter, ctx.Request)
+	ctx.Input.CruSession = beego.GlobalSessions.SessionRegenerateID(ctx.ResponseWriter, ctx.Request)
 	ctx.Input.CruSession.Set("auth_user_id", user.Id)
 
 	if remember {

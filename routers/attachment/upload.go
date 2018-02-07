@@ -15,16 +15,16 @@
 package attachment
 
 import (
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/setting"
 	"net/http"
 	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 
-	"github.com/missdeer/KellyBackend/modules/attachment"
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/routers/base"
+	"github.com/missdeer/kelly/modules/attachment"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/routers/base"
 )
 
 type UploadRouter struct {

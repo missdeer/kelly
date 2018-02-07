@@ -16,7 +16,6 @@ package attachment
 
 import (
 	"fmt"
-	"github.com/missdeer/KellyBackend/setting"
 	"image"
 	"image/gif"
 	"image/jpeg"
@@ -26,39 +25,13 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/nfnt/resize"
-
 	"github.com/astaxie/beego"
-
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/modules/utils"
-	"github.com/missdeer/KellyBackend/upyun"
-	. "github.com/qiniu/api/conf"
-	qiniuio "github.com/qiniu/api/io"
-	"github.com/qiniu/api/rs"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/modules/utils"
+	"github.com/missdeer/kelly/setting"
+	"github.com/missdeer/kelly/upyun"
+	"github.com/nfnt/resize"
 )
-
-func uploadToQiniu(imageLocalPath string, imageRemotePath string, result chan error) {
-	if setting.QiniuEnabled {
-		beego.Info("start uploading to qiniu ", imageLocalPath)
-		putPolicy := rs.PutPolicy{}
-		putPolicy.Scope = setting.QiniuBucketName
-		uptoken := putPolicy.Token(nil)
-
-		var ret qiniuio.PutRet
-		var extra = &qiniuio.PutExtra{}
-
-		// get encoded file name as the key
-		err := qiniuio.PutFile(nil, &ret, uptoken, imageRemotePath, imageLocalPath, extra)
-		if err != nil {
-			beego.Error("putting file without key to Qiniu failed: ", err)
-		}
-		result <- err
-	} else {
-		result <- nil
-	}
-	beego.Info("uploaded to qiniu ", imageRemotePath)
-}
 
 func uploadToUpyun(imageLocalPath string, imageRemotePath string, result chan error) {
 	if setting.UpYunEnabled {
@@ -158,9 +131,6 @@ func SaveImage(m *models.Image, r io.ReadSeeker, mime string, filename string, c
 
 	uploadChannels := make(chan error, 6)
 
-	ACCESS_KEY = setting.QiniuAppKey
-	SECRET_KEY = setting.QiniuSecretKey
-	go uploadToQiniu(fullPath, key, uploadChannels)
 	go uploadToUpyun(fullPath, "/"+key, uploadChannels)
 	var result error = nil
 
@@ -174,7 +144,6 @@ func SaveImage(m *models.Image, r io.ReadSeeker, mime string, filename string, c
 			}
 			smallPath = GenImageFilePath(m, setting.ImageSizeSmall)
 			key = "upload" + m.LinkSmall()
-			go uploadToQiniu(smallPath, key, uploadChannels)
 			go uploadToUpyun(smallPath, "/"+key, uploadChannels)
 		}
 
@@ -190,7 +159,6 @@ func SaveImage(m *models.Image, r io.ReadSeeker, mime string, filename string, c
 			}
 			middlePath = GenImageFilePath(m, setting.ImageSizeMiddle)
 			key = "upload" + m.LinkMiddle()
-			go uploadToQiniu(middlePath, key, uploadChannels)
 			go uploadToUpyun(middlePath, "/"+key, uploadChannels)
 		}
 	}

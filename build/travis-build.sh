@@ -13,7 +13,7 @@ GO_VER=go1.4.1
 GO_TAR=${GO_VER}.linux-amd64.tar.gz
 GO_URL="https://storage.googleapis.com/golang/${GO_TAR}"
 
-: ${GITHUB_REPO:="missdeer/KellyBackend"}
+: ${GITHUB_REPO:="missdeer/kelly"}
 GITHUB_HOST="github.com"
 GITHUB_CLONE="git://${GITHUB_HOST}/${GITHUB_REPO}"
 GITHUB_URL="https://${GITHUB_HOST}/${GITHUB_PUSH-${GITHUB_REPO}}"

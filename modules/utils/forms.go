@@ -26,7 +26,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
 
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/setting"
 )
 
 func init() {
@@ -105,7 +105,7 @@ type FormSets struct {
 	Locale    FormLocaler
 	inited    bool
 	form      interface{}
-	errs      map[string]*validation.Error
+	errs      map[string][]*validation.Error
 }
 
 func (this *FormSets) SetError(fieldName, errMsg string) {
@@ -115,7 +115,7 @@ func (this *FormSets) SetError(fieldName, errMsg string) {
 }
 
 // create formSets for generate label/field html code
-func NewFormSets(form interface{}, errs map[string]*validation.Error, locale FormLocaler) *FormSets {
+func NewFormSets(form interface{}, errs map[string][]*validation.Error, locale FormLocaler) *FormSets {
 	fSets := new(FormSets)
 	fSets.errs = errs
 	fSets.Fields = make(map[string]*FieldSet)
@@ -268,7 +268,7 @@ outFor:
 		// create error string
 		if errs != nil {
 			if err, ok := errs[name]; ok {
-				fSet.Error = locale.Tr(err.Tmpl, err.LimitValue)
+				fSet.Error = locale.Tr(err[0].Tmpl, err[0].LimitValue)
 			}
 		}
 
@@ -466,7 +466,7 @@ func initExtraField() {
 		fSet.Field = func() template.HTML {
 			return template.HTML(fmt.Sprintf(`%v
 			<input id="%s" name="%s" type="text" value="" class="form-control" autocomplete="off"%s%s>`,
-				setting.Captcha.CreateCaptchaHtml(), fSet.Id, fSet.Name, fSet.Placeholder, fSet.Attrs))
+				setting.Captcha.CreateCaptchaHTML(), fSet.Id, fSet.Name, fSet.Placeholder, fSet.Attrs))
 		}
 	})
 

@@ -15,7 +15,7 @@
 package api
 
 import (
-	"github.com/missdeer/KellyBackend/modules/utils"
+	"github.com/missdeer/kelly/modules/utils"
 )
 
 func (this *ApiRouter) Markdown() {

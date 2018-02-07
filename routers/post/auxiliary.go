@@ -15,7 +15,7 @@
 package post
 
 import (
-	"github.com/missdeer/KellyBackend/routers/base"
+	"github.com/missdeer/kelly/routers/base"
 )
 
 // HomeRouter serves home page.

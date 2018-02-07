@@ -26,8 +26,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
-
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/setting"
 )
 
 // get HTML i18n string
@@ -159,10 +158,7 @@ func RenderTemplate(TplNames string, Data map[interface{}]interface{}) string {
 	}
 
 	ibytes := bytes.NewBufferString("")
-	if _, ok := beego.BeeTemplates[TplNames]; !ok {
-		panic("can't find templatefile in the path:" + TplNames)
-	}
-	err := beego.BeeTemplates[TplNames].ExecuteTemplate(ibytes, TplNames, Data)
+	err := beego.ExecuteTemplate(ibytes, TplNames, Data)
 	if err != nil {
 		beego.Trace("template Execute err:", err)
 	}

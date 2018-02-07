@@ -20,12 +20,12 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 
-	"github.com/missdeer/KellyBackend/cache"
-	"github.com/missdeer/KellyBackend/modules/models"
-	"github.com/missdeer/KellyBackend/modules/post"
-	"github.com/missdeer/KellyBackend/modules/utils"
-	"github.com/missdeer/KellyBackend/routers/base"
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/cache"
+	"github.com/missdeer/kelly/modules/models"
+	"github.com/missdeer/kelly/modules/post"
+	"github.com/missdeer/kelly/modules/utils"
+	"github.com/missdeer/kelly/routers/base"
+	"github.com/missdeer/kelly/setting"
 )
 
 // HomeRouter serves home page.

@@ -16,7 +16,7 @@ package post
 
 import (
 	"fmt"
-	"github.com/missdeer/KellyBackend/routers/base"
+	"github.com/missdeer/kelly/routers/base"
 	"strings"
 )
 

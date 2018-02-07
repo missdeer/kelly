@@ -20,9 +20,9 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 
-	"github.com/missdeer/KellyBackend/modules/auth"
-	"github.com/missdeer/KellyBackend/modules/utils"
-	"github.com/missdeer/KellyBackend/routers/base"
+	"github.com/missdeer/kelly/modules/auth"
+	"github.com/missdeer/kelly/modules/utils"
+	"github.com/missdeer/kelly/routers/base"
 )
 
 type BaseAdminRouter struct {
@@ -69,7 +69,7 @@ type ModelAdminRouter struct {
 
 func (this *ModelAdminRouter) ModelPrepare() {
 	// set TplNames for model
-	values := this.Ctx.Input.Params
+	values := this.Ctx.Input.Params()
 
 	if _, ok := values[":model"]; ok {
 		model := this.GetString(":model")

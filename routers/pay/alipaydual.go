@@ -3,8 +3,8 @@ package alipay
 import (
 	"crypto/md5"
 	"fmt"
-	"github.com/missdeer/KellyBackend/routers/base"
-	"github.com/missdeer/KellyBackend/setting"
+	"github.com/missdeer/kelly/routers/base"
+	"github.com/missdeer/kelly/setting"
 	"net/url"
 	"sort"
 	"strings"

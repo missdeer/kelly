@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/Unknwon/goconfig"
-	"github.com/go-fsnotify/fsnotify"
+	"github.com/fsnotify/fsnotify"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
@@ -289,7 +289,7 @@ func LoadConfig() *goconfig.ConfigFile {
 
 	beego.BConfig.RunMode = Cfg.MustValue("app", "run_mode")
 	beego.BConfig.Listen.HTTPPort = Cfg.MustInt("app", "http_port")
-    beego.BConfig.Listen.HTTPAddr = Cfg.MustValue("app", "http_addr", "127.0.0.1")
+	beego.BConfig.Listen.HTTPAddr = Cfg.MustValue("app", "http_addr", "127.0.0.1")
 
 	IsProMode = beego.BConfig.RunMode == "pro"
 	if IsProMode {
@@ -300,7 +300,7 @@ func LoadConfig() *goconfig.ConfigFile {
 	Cache, err = cache.NewCache("memory", `{"interval":360}`)
 
 	Captcha = captcha.NewCaptcha("/captcha/", Cache)
-	Captcha.FieldIdName = "CaptchaId"
+	Captcha.FieldIDName = "CaptchaId"
 	Captcha.FieldCaptchaName = "Captcha"
 
 	// session settings
