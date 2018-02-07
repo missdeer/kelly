@@ -3,12 +3,13 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/missdeer/kelly/setting"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os/exec"
+
+	"github.com/astaxie/beego"
+	"github.com/missdeer/kelly/setting"
 )
 
 func renderPythonReadability(content string) string {

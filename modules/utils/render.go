@@ -2,9 +2,10 @@ package utils
 
 import (
 	"fmt"
-	"github.com/astaxie/beego"
 	"net/url"
 	"regexp"
+
+	"github.com/astaxie/beego"
 )
 
 func Render(content string) string {

@@ -8,7 +8,6 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/beego/social-auth"
-
 	"github.com/missdeer/kelly/cache"
 	"github.com/missdeer/kelly/modules/utils"
 	"github.com/missdeer/kelly/routers/admin"
@@ -177,7 +176,7 @@ func main() {
 	beego.Router("/i/:id([0-9]+)", forwarderR, "get:TaobaoItem")
 
 	alipayR := new(alipay.AlipayRouter)
-    beego.Router("/alipay", alipayR, "get:Pay;post:Pay")
+	beego.Router("/alipay", alipayR, "get:Pay;post:Pay")
 
 	routes := map[string]beego.ControllerInterface{
 		"user":     new(admin.UserAdminRouter),

@@ -2,9 +2,10 @@ package utils
 
 import (
 	"bytes"
-	"github.com/astaxie/beego"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/astaxie/beego"
 )
 
 func renderWeiXinMP(content string) string {

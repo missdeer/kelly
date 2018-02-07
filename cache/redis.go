@@ -5,7 +5,6 @@ import (
 	"encoding/gob"
 
 	"github.com/garyburd/redigo/redis"
-
 	"github.com/missdeer/kelly/modules/models"
 )
 

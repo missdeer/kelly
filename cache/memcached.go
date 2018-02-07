@@ -6,7 +6,6 @@ import (
 	"strconv"
 
 	"github.com/bradfitz/gomemcache/memcache"
-
 	"github.com/missdeer/kelly/modules/models"
 )
 

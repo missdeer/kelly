@@ -24,9 +24,8 @@ type UpYun struct {
 	contentMd5 string
 	fileSecret string
 	tmpHeaders map[string]string
-
-	TimeOut int
-	Debug   bool
+	TimeOut    int
+	Debug      bool
 }
 
 /**
