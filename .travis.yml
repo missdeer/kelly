@@ -37,11 +37,11 @@ deploy:
     - kelly-windows-amd64.tar.gz
     - kelly-windows-x86.tar.gz
   on:
-    repo: dfordsoft/kelly
+    repo: missdeer/kelly
     tags: true
   skip_cleanup: true
 install:
-  - go get github.com/dfordsoft/kelly
+  - go get github.com/missdeer/kelly
 script:
   - pwd && ls -l
   - env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w"  && tar czvf kelly-linux-amd64.tar.gz kelly conf static static_source views
